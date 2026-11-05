@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/HumanEmotionApi.Api/HumanEmotionApi.Api.csproj" />
+    <Project Path="src/HumanEmotionApi.Application/HumanEmotionApi.Application.csproj" />
+    <Project Path="src/HumanEmotionApi.Domain/HumanEmotionApi.Domain.csproj" />
+    <Project Path="src/HumanEmotionApi.Infrastructure/HumanEmotionApi.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HumanEmotionApi.Tests/HumanEmotionApi.Tests.csproj" />
+  </Folder>
+</Solution>

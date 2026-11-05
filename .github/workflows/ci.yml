@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    name: Build, Test & Scan
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET 10 LTS
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore HumanEmotionApi.slnx
+
+    - name: Build solution
+      run: dotnet build HumanEmotionApi.slnx --no-restore --configuration Release
+
+    - name: Run tests with coverage
+      run: >
+        dotnet test HumanEmotionApi.slnx
+        --no-build
+        --configuration Release
+        --collect:"XPlat Code Coverage"
+        --results-directory ./TestResults
+        --logger "trx;LogFileName=test-results.trx"
+        -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Threshold=90
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results
+        path: ./TestResults/**/*.trx
+        retention-days: 7
+
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: coverage-report
+        path: ./TestResults/**/coverage.cobertura.xml
+        retention-days: 7
+
+    # Code scanning with dotnet-format (free, built-in tool)
+    - name: Code formatting check
+      run: dotnet format --no-restore --verify-no-changes --severity error
+
+    # Static analysis via Roslyn analyzers (enabled by default in .NET 10)
+    - name: Static analysis (Roslyn analyzers)
+      run: >
+        dotnet build HumanEmotionApi.slnx
+        --no-restore
+        --configuration Release
+        /p:TreatWarningsAsErrors=false
+        /p:AnalysisMode=All
+        /p:EnforceCodeStyleInBuild=true
+
+

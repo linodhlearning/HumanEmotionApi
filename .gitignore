@@ -1,0 +1,57 @@
+## .NET / C# gitignore
+
+# Build outputs
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+!**/packages/repositories.config
+*.nuspec
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Visual Studio
+.vs/
+*.vscode/
+*.DotSettings.user
+.idea/
+
+# Test results & coverage
+TestResults/
+coverage/
+*.coveragexml
+*.coverage
+*.trx
+
+# SQLite database files (runtime-generated)
+*.db
+*.db-shm
+*.db-wal
+
+# Build logs
+*.binlog
+*.log
+restore.log
+
+# Rider
+.idea/
+*.sln.iml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
