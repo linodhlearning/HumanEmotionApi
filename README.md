@@ -119,3 +119,32 @@ GitHub Actions pipeline (`.github/workflows/ci.yml`):
 | Moq | 4.20.70 |
 | Swashbuckle (Swagger) | 6.6.2 |
 | coverlet | 6.0.4 |
+
+## 🖥️ Frontend (React 19 + HTMX)
+
+A modern client application located in the `client/` directory featuring:
+- **React 19 SPA** with Vite and TypeScript
+- **TanStack Query v5** for caching and optimistic state updates
+- **React Router v7** for single-page routing
+- **HTMX 2.x Integration** on the Emotions page allowing one-click switching between **React Mode** and **HTMX Mode**
+
+### Run the Frontend
+```bash
+cd client
+pnpm install
+pnpm dev
+```
+Open **[http://localhost:5173](http://localhost:5173)** in your browser!
+
+### Frontend Routes
+| Route | Component | Purpose |
+|---|---|---|
+| `/` | `HumansPage` | List all humans, add new human, delete, view color spectrum |
+| `/:id` | `HumanDetailPage` | Profile view with large ShowColor swatch, inline name editing |
+| `/:id/emotions` | `EmotionsPage` | ⭐ **React ↔ HTMX Toggle Page**: Adjust emotion percentages (0-100%) |
+
+### React vs. HTMX Comparison on `/:id/emotions`
+- **React Mode**: Client-side state and mutations using TanStack Query hooks, interactive sliders, dynamic ShowColor updates.
+- **HTMX Mode**: Pure server-driven HTML fragment swapping. HTMX posts form changes directly to `/api/humans/{id}/emotions/fragment` and swaps the UI with zero client-side React state.
+
+

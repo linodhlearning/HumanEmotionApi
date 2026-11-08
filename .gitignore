@@ -55,3 +55,12 @@ restore.log
 # Windows
 Thumbs.db
 desktop.ini
+
+# Frontend / Node
+node_modules/
+dist/
+client/node_modules/
+client/dist/
+client/.pnpm-store/
+
+
