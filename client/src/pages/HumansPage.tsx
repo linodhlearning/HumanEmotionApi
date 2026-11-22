@@ -163,3 +163,4 @@ export const HumansPage: React.FC = () => {
     </div>
   );
 };
+

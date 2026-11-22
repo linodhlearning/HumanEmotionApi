@@ -7,6 +7,11 @@
     <title>Human Emotion Tracker — React & HTMX</title>
     <!-- HTMX 2.x offline library -->
     <script src="/htmx.min.js"></script>
+    <script>
+      if (window.htmx) {
+        window.htmx.config.selfRequestsOnly = false;
+      }
+    </script>
     <style>
       *, *::before, *::after {
         box-sizing: border-box;

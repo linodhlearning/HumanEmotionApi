@@ -24,3 +24,4 @@ export const updateHuman = async (id: string, request: UpdateHumanRequest): Prom
 export const deleteHuman = async (id: string): Promise<void> => {
   await apiClient.delete(`/humans/${id}`);
 };
+

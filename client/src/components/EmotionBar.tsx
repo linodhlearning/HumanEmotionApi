@@ -44,3 +44,4 @@ export const EmotionBar: React.FC<EmotionBarProps> = ({ emotion }) => {
     </div>
   );
 };
+

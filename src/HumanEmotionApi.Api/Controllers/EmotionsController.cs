@@ -230,14 +230,14 @@ public class EmotionsController : ControllerBase
                             <div style="background:{{emotionColors[t]}};height:100%;width:{{existing.Percentage}}%;"></div>
                         </div>
                         <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-                            <form hx-post="http://localhost:5050/api/humans/{{humanId}}/emotions/{{t}}/htmx-update"
+                            <form hx-post="/api/humans/{{humanId}}/emotions/{{t}}/htmx-update"
                                   hx-target="#htmx-emotions-container"
                                   hx-swap="innerHTML"
                                   style="display:flex;align-items:center;gap:8px;flex:1;">
                                 <input type="number" name="percentage" value="{{(int)existing.Percentage}}" min="0" max="100" style="padding:6px 10px;border:1px solid #cbd5e1;border-radius:6px;width:80px;" required />
                                 <button type="submit" style="background:#3b82f6;color:white;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-weight:500;">Update %</button>
                             </form>
-                            <form hx-post="http://localhost:5050/api/humans/{{humanId}}/emotions/{{t}}/htmx-delete"
+                            <form hx-post="/api/humans/{{humanId}}/emotions/{{t}}/htmx-delete"
                                   hx-target="#htmx-emotions-container"
                                   hx-swap="innerHTML"
                                   hx-confirm="Remove {{emotionNames[t]}} from {{human.Name}}?">
@@ -258,7 +258,7 @@ public class EmotionsController : ControllerBase
                             </div>
                             <span style="font-size:13px;color:#94a3b8;">Not added yet</span>
                         </div>
-                        <form hx-post="http://localhost:5050/api/humans/{{humanId}}/emotions/htmx"
+                        <form hx-post="/api/humans/{{humanId}}/emotions/htmx"
                               hx-target="#htmx-emotions-container"
                               hx-swap="innerHTML"
                               style="display:flex;align-items:center;gap:8px;">

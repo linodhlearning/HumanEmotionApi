@@ -42,3 +42,4 @@ export const updateEmotion = async (
 export const deleteEmotion = async (humanId: string, type: EmotionType): Promise<void> => {
   await apiClient.delete(`/humans/${humanId}/emotions/${type}`);
 };
+

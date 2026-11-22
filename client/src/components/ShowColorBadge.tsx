@@ -60,3 +60,4 @@ export const ShowColorBadge: React.FC<ShowColorBadgeProps> = ({
     </div>
   );
 };
+

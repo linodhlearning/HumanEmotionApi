@@ -69,3 +69,4 @@ export interface AddEmotionRequest {
 export interface UpdateEmotionRequest {
   percentage: number;
 }
+

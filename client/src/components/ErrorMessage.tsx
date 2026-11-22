@@ -46,3 +46,4 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({ message, onRetry }) 
     </div>
   );
 };
+

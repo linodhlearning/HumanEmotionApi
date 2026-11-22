@@ -153,3 +153,4 @@ export const HumanCard: React.FC<HumanCardProps> = ({ human, onDelete, isDeletin
     </div>
   );
 };
+
